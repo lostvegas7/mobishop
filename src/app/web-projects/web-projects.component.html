@@ -1,0 +1,20 @@
+<div class="container">
+  <h1 class="title">
+    Web проекты
+  </h1>
+  <div class="gallery">
+    <mat-card *ngFor="let img of images">
+      <img [src]="img.download_url" [alt]="img.url">
+    </mat-card>
+    <div class="spinner-border" role="status" *ngIf="loading">
+      <span class="sr-only">Loading...</span>
+    </div>
+  </div>
+  <ngb-pagination class="d-flex justify-content-center"
+                [collectionSize]="collectionSize"
+                [pageSize]="itemsPerPage"
+                [(page)]="page"
+                [boundaryLinks]="true"
+                (pageChange)="onPageChanged($event)">
+  </ngb-pagination>
+</div>
